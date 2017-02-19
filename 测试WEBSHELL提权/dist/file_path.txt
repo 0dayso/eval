@@ -1,0 +1,9 @@
+C:\Documents and Settings\
+C:\Inetpub\
+C:\Program Files\
+C:\RECYCLER\
+C:\System Volume Information\
+C:\Temp\
+C:\WINDOWS\
+C:\wmpub\
+C:\wmpub\wmiislog\

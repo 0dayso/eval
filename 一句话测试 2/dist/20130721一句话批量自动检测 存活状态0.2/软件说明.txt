@@ -1,0 +1,25 @@
+    print u"=========  一句话批量自动检测 存活状态0.2 ========="
+    print u" 目前支持ASP PHP 2种  如果是其他的话  按照PHP处理"
+    print u"  检测一句话是否  被安全狗给吃了   "
+    print u"    格式如下   http://xxxx.com/Style.php|cmd"
+    print u"=========QQ群:147225474  专用工具请勿外传========="
+    print u"=========      time:2013/7/20          ========="
+
+
+
+print u"无参数传入   \r\n软件使用bat方法   yijuhua_CS.exe 1.txt   "
+print u"无参数传入   \r\n软件使用批处理或者cmd带参数传入   软件名 要扫描的内容    "
+print u"扫描内容一行一条\r\n 格式如下   http://xxxx.com/Style.php|cmd"
+
+http://xxxx.com/Style.php|cmd
+（记得带http://）一句话地址|密码    
+
+cs.txt  是样板文件
+扫描结果或自动保存
+文件目录下
+OK.TXT   OK是测试成功的
+NO.TXT   NO是测试失败的
+
+在扫描过程中请勿打开文件（会影响文件写入的）
+
+如有不会  请加群 QQ群:147225474     进行询问

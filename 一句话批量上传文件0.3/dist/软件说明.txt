@@ -1,0 +1,12 @@
+一句话批量上传文件    自动访问  繁殖器  0.3
+现在软件目前只支持PHP
+落雪技术支持  QQ2602159946
+导入文件
+格式   以|作为分割
+一句话地址|密码
+http://www.0201.com.cn/plus/long.php|long
+http://www.0201.com.cn/plus/long.php|long|XXX   这样也是可以的以|作为分隔符
+
+
+
+其功能大家自己尝试吧

